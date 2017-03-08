@@ -1,13 +1,12 @@
 package com.coderising.litestruts;
 
-import org.dom4j.DocumentException;
-
 import java.util.Map;
+
 
 
 public class Struts {
 
-    public static View runAction(String actionName, Map<String,String> parameters) throws DocumentException {
+    public static View runAction(String actionName, Map<String,String> parameters) {
 
         /*
          
@@ -28,8 +27,8 @@ public class Struts {
 		放到View对象的jsp字段中。
         
         */
-    	//0. 读取配置文件struts.xml
-        return null;
+    	
+    	return null;
     }    
 
 }
