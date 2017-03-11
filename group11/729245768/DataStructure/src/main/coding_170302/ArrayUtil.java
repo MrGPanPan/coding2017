@@ -96,7 +96,7 @@ public class ArrayUtil {
 		if(max<=1){
 			return new int[0];
 		}
-		ArrayList list = new ArrayList();
+		ArrayList<Integer> list = new ArrayList();
 		int fib1 = 1;
 		int fib2 = 1;
 		list.add(fib1);
@@ -108,7 +108,7 @@ public class ArrayUtil {
 		}
 		int[] array = new int[list.size()];
 		for(int i=0;i<list.size();i++){
-			array[i] = (int)list.get(i);
+			array[i] = list.get(i);
 		}
 		return array;
 	}
@@ -195,7 +195,7 @@ public class ArrayUtil {
 	 * 例如array= [3,8,9], seperator = "-"
 	 * 则返回值为"3-8-9"
 	 * @param array
-	 * @param s
+	 * @param
 	 * @return
 	 */
 	public String join(int[] array, String seperator){
