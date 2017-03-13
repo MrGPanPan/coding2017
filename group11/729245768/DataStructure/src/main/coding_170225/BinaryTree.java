@@ -1,24 +1,24 @@
-
+package main.coding_170225;
 /**
  * Created by peter on 2017/2/23.
  */
 public class BinaryTree {
-    private BinaryTreeNode root=null;//根节点
+    private main.coding_170225.BinaryTreeNode root=null;//根节点
     public BinaryTree(){
 
     }
 
-    public BinaryTree(BinaryTreeNode root){
+    public BinaryTree(main.coding_170225.BinaryTreeNode root){
         this.root = root;
     }
     //插入节点
-    public void insert(BinaryTreeNode binaryTreeNode){
+    public void insert(main.coding_170225.BinaryTreeNode binaryTreeNode){
         if(root==null){
             root = binaryTreeNode;
             return;
         }
-        BinaryTreeNode parent =null;//用来表示当前节点的父节点
-        BinaryTreeNode visit =root;//用来查找合适的插入位置
+        main.coding_170225.BinaryTreeNode parent =null;//用来表示当前节点的父节点
+        main.coding_170225.BinaryTreeNode visit =root;//用来查找合适的插入位置
         while (visit!=null){
             if(binaryTreeNode.getData()<=visit.getData()){
                 parent = visit;
@@ -38,7 +38,7 @@ public class BinaryTree {
         }
     }
     //输出二叉树每个节点
-    public void printBinaryTreeNode(BinaryTreeNode root){
+    public void printBinaryTreeNode(main.coding_170225.BinaryTreeNode root){
        if(root==null){
            return;
        }
@@ -51,7 +51,7 @@ public class BinaryTree {
         }
     }
     //获取根节点
-    public BinaryTreeNode getRoot(){
+    public main.coding_170225.BinaryTreeNode getRoot(){
         return root;
     }
 }

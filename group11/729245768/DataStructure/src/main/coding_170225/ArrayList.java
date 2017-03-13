@@ -1,6 +1,6 @@
+package main.coding_170225;
 import java.util.Arrays;
-
-/**
+/** 线性组
  * Created by peter on 2017/2/22.
  */
 public class ArrayList {

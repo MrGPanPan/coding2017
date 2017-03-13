@@ -1,3 +1,6 @@
+package main.coding_170225;
+
+import java.util.LinkedList;
 
 /**
  * Created by peter on 2017/2/23.

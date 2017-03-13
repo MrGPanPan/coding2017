@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/729245768.iml" filepath="$PROJECT_DIR$/.idea/729245768.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../CodingImprove/CodingImprove.iml" filepath="$PROJECT_DIR$/../../../CodingImprove/CodingImprove.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../liuxin/liuxin.iml" filepath="$PROJECT_DIR$/../../liuxin/liuxin.iml" />
+    </modules>
+  </component>
+</project>
