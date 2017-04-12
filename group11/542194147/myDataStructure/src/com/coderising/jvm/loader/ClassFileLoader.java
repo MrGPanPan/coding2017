@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.coderising.jvm.clz.ClassFile;
+
 
 
 public class ClassFileLoader {
@@ -67,8 +69,6 @@ public class ClassFileLoader {
 		clzPaths.add(path);
 	}
 	
-	
-	
 	public String getClassPath(){
 		StringBuffer sb=new StringBuffer();
 		for(int i=0;i<clzPaths.size();i++){
@@ -80,6 +80,13 @@ public class ClassFileLoader {
 			
 		}
 		return sb.toString();
+	}
+
+
+	public ClassFile loadClass(String className) {
+		byte[]codes=readBinaryCode(className);
+		ClassFileParser parser=new ClassFileParser();
+		return parser.parse(codes);
 	}
 
 	
