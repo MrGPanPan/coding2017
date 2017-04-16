@@ -1,6 +1,7 @@
 package com.pan.jvm.method;
 
 
+
 import com.pan.jvm.attr.CodeAttr;
 import com.pan.jvm.clz.ClassFile;
 import com.pan.jvm.loader.ByteCodeIterator;
@@ -43,11 +44,7 @@ public class Method {
 	}
 
 	
-	
-	
-	
-	public static Method parse(ClassFile clzFile, ByteCodeIterator iter){
-		return null;
+
 		
 	}
 }

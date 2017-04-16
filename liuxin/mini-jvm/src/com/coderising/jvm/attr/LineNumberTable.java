@@ -3,6 +3,7 @@ package com.coderising.jvm.attr;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import com.coderising.jvm.loader.ByteCodeIterator;
 
 public class LineNumberTable extends AttributeInfo {
@@ -34,7 +35,7 @@ public class LineNumberTable extends AttributeInfo {
 	
 	public static LineNumberTable parse(ByteCodeIterator iter){
 		
-		return null;
+
 	}
 	
 	

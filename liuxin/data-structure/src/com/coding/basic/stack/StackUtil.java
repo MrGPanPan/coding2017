@@ -14,6 +14,7 @@ public class StackUtil {
 		s = tmpStack;
 		
 	}
+
 	
 	/**
 	 * 假设栈中的元素是Integer, 从栈顶到栈底是 : 5,4,3,2,1 调用该方法后， 元素次序变为: 1,2,3,4,5
@@ -23,9 +24,7 @@ public class StackUtil {
 		if(s == null || s.isEmpty()){
 			return;
 		}
-		Integer top = s.pop();
-		reverse(s);
-		addToBottom(s,top);
+
 		
 		
 	}
@@ -85,7 +84,7 @@ public class StackUtil {
 				break;
 			}
 		}
-		
+
 		return result;
 	}
 	/**

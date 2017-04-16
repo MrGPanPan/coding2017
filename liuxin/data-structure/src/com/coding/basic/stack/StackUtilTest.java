@@ -1,6 +1,5 @@
 package com.coding.basic.stack;
 
-import static org.junit.Assert.fail;
 
 import java.util.Stack;
 

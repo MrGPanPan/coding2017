@@ -50,8 +50,7 @@ public class Method {
 	
 	
 	
-	public static Method parse(ClassFile clzFile, ByteCodeIterator iter){
-		return null;
+
 		
 	}
 }

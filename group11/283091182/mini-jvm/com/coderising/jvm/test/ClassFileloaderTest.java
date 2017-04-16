@@ -5,6 +5,7 @@ import  org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+
 import com.coderising.jvm.loader.ClassFileLoader;
 
 
@@ -14,9 +15,7 @@ import com.coderising.jvm.loader.ClassFileLoader;
 public class ClassFileloaderTest {
 
 	
-	static String path1 = "C:\\Users\\Administrator\\mygit\\coding2017\\liuxin\\bin";
-	static String path2 = "C:\\temp";
-	
+
 	
 	
 	@Before
@@ -72,21 +71,6 @@ public class ClassFileloaderTest {
     
     
     
-    
-    
-    
-	private String byteToHexString(byte[] codes ){
-		StringBuffer buffer = new StringBuffer();
-		for(int i=0;i<codes.length;i++){
-			byte b = codes[i];
-			int value = b & 0xFF;
-			String strHex = Integer.toHexString(value);
-			if(strHex.length()< 2){
-				strHex = "0" + strHex;
-			}		
-			buffer.append(strHex);
-		}
-		return buffer.toString();
-	}
+
 
 }

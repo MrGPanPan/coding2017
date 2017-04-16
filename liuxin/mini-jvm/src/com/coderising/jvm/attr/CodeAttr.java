@@ -39,10 +39,7 @@ public class CodeAttr extends AttributeInfo {
 		this.localVarTable = t;		
 	}
 	
-	public static CodeAttr parse(ClassFile clzFile, ByteCodeIterator iter){
-		
-		
-		return null;
+
 	}
 	private void setStackMapTable(StackMapTable t) {
 		this.stackMapTable = t;

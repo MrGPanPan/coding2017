@@ -2,6 +2,7 @@ package com.pan.jvm.field;
 
 
 import com.pan.jvm.constant.ConstantPool;
+import com.pan.jvm.constant.UTF8Info;
 import com.pan.jvm.loader.ByteCodeIterator;
 
 public class Field {
@@ -21,12 +22,7 @@ public class Field {
 		this.pool = pool;
 	}
 
-	
-	
-	
-	public static Field parse(ConstantPool pool,ByteCodeIterator iter){
-		
-		return null;
+
 	}
 
 }

@@ -16,13 +16,10 @@ public class LocalVariableTable extends AttributeInfo{
 		super(attrNameIndex, attrLen);		
 	}
 	
-	public static LocalVariableTable parse(ByteCodeIterator iter){
-		
-		return null;
-	}
+
 	private void addLocalVariableItem(LocalVariableItem item) {
 		this.items.add(item);		
 	}
 	
-	
+
 }

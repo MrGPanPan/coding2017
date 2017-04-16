@@ -33,8 +33,7 @@ public class LineNumberTable extends AttributeInfo {
 	}
 	
 	public static LineNumberTable parse(ByteCodeIterator iter){
-		
-		return null;
+
 	}
 	
 	

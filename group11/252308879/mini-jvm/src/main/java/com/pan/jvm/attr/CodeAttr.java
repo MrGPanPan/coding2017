@@ -1,7 +1,6 @@
 package com.pan.jvm.attr;
 
 import com.pan.jvm.clz.ClassFile;
-import com.pan.jvm.constant.ConstantPool;
 import com.pan.jvm.loader.ByteCodeIterator;
 
 
@@ -40,9 +39,7 @@ public class CodeAttr extends AttributeInfo {
 	}
 	
 	public static CodeAttr parse(ClassFile clzFile, ByteCodeIterator iter){
-		
-		
-		return null;
+
 	}
 	private void setStackMapTable(StackMapTable t) {
 		this.stackMapTable = t;
