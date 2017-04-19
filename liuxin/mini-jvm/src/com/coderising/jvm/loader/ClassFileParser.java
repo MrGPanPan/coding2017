@@ -45,9 +45,7 @@ public class ClassFileParser {
 
 		parseInterfaces(iter);
 
-		parseFileds(clzFile, iter);
 
-		parseMethods(clzFile, iter);
 		
 		return clzFile;
 	}
@@ -55,7 +53,7 @@ public class ClassFileParser {
 	private AccessFlag parseAccessFlag(ByteCodeIterator iter) {
 
 		AccessFlag flag = new AccessFlag(iter.nextU2ToInt());
-		
+
 		return flag;
 	}
 
@@ -77,7 +75,7 @@ public class ClassFileParser {
 
 		int constPoolCount = iter.nextU2ToInt();
 
-		//System.out.println("Constant Pool Count :" + constPoolCount);
+
 
 		ConstantPool pool = new ConstantPool();
 		
@@ -147,25 +145,6 @@ public class ClassFileParser {
 		// TODO : 如果实现了interface, 这里需要解析
 	}
 
-	private void parseFileds(ClassFile clzFile, ByteCodeIterator iter) {
-		int fieldCount = iter.nextU2ToInt();
-		
-		for (int i = 1; i <= fieldCount; i++) {
-			Field f = Field.parse(clzFile.getConstantPool(), iter);
-			clzFile.addField(f);			
-		}
 
-	}
-
-	private void parseMethods(ClassFile clzFile, ByteCodeIterator iter) {
-
-		int methodCount = iter.nextU2ToInt();
-
-		for (int i = 1; i <= methodCount; i++) {
-			Method m = Method.parse(clzFile, iter);
-			clzFile.addMethod(m);
-		}
-
-	}
 	
 }

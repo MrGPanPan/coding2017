@@ -14,29 +14,6 @@ public class StackUtil {
 		s = tmpStack;
 		
 	}
-	
-	
-	
-	public static void reverse_247565311(Stack<Integer> s){
-        if(s == null || s.isEmpty()) {
-        	return;
-        }
-        
-        int size = s.size();
-        Stack<Integer> tmpStack = new Stack<Integer>();        
-        
-        for(int i=0;i<size;i++){
-            Integer top = s.pop();
-            while(s.size()>i){
-                tmpStack.push(s.pop());
-            }
-            s.push(top);
-            while(tmpStack.size()>0){
-                s.push(tmpStack.pop());
-            }
-        }
-    }
-
 
 	
 	/**
@@ -47,15 +24,7 @@ public class StackUtil {
 		if(s == null || s.isEmpty()){
 			return;
 		}
-		
-		Stack<Integer> tmp = new Stack<Integer>();
-		while(!s.isEmpty()){
-			tmp.push(s.pop());
-		}
-		while(!tmp.isEmpty()){
-			Integer top = tmp.pop();
-			addToBottom(s,top);
-		}	
+
 		
 		
 	}
@@ -115,9 +84,7 @@ public class StackUtil {
 				break;
 			}
 		}
-		while(!tmpStack.isEmpty()){
-			s.push(tmpStack.pop());
-		}
+
 		return result;
 	}
 	/**

@@ -1,5 +1,6 @@
 package com.coding.basic.stack;
 
+
 import java.util.Stack;
 
 import org.junit.After;
@@ -40,17 +41,7 @@ public class StackUtilTest {
 		StackUtil.reverse(s);
 		Assert.assertEquals("[5, 4, 3, 2, 1]", s.toString());
 	}
-	@Test
-	public void testReverse_247565311() {
-		Stack<Integer> s = new Stack();
-		s.push(1);
-		s.push(2);
-		s.push(3);
-		
-		Assert.assertEquals("[1, 2, 3]", s.toString());
-		StackUtil.reverse_247565311(s);
-		Assert.assertEquals("[3, 2, 1]", s.toString());
-	}
+
 	@Test
 	public void testRemove() {
 		Stack<Integer> s = new Stack();
