@@ -19,6 +19,24 @@ public class ExecutorEngine {
 	}
 	
 	public void execute(Method mainMethod){
+		StackFrame mainFrame=StackFrame.create(mainMethod);
+		stack.push(mainFrame);
+		while (!stack.isEmpty()) {
+			StackFrame frame=stack.peek();
+			ExecutionResult result=frame.execute();
+			if (result.isPauseAndRunNewFrame()) {
+				Method nextMethod=result.getNextMethod();
+				StackFrame nextFrame=StackFrame.create(nextMethod);
+				nextFrame.setCallerFrame(frame);
+				//设置传入参数
+				setupFunctionCallParams(frame, nextFrame);
+				stack.push(nextFrame);
+			}
+			else {
+				stack.pop();
+			}
+			
+		}
 		
 		
 		
@@ -27,7 +45,8 @@ public class ExecutorEngine {
 	
 	
 	private void setupFunctionCallParams(StackFrame currentFrame,StackFrame nextFrame) {
-		
+		Method nextMethod=nextFrame.getMethod();
+		n
 		
 		
 	}
