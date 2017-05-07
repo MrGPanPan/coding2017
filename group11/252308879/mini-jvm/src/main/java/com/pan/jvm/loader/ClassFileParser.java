@@ -4,6 +4,8 @@ import com.pan.jvm.clz.AccessFlag;
 import com.pan.jvm.clz.ClassFile;
 import com.pan.jvm.clz.ClassIndex;
 import com.pan.jvm.constant.*;
+import com.pan.jvm.field.Field;
+import com.pan.jvm.method.Method;
 
 import java.io.UnsupportedEncodingException;
 
@@ -30,8 +32,36 @@ public class ClassFileParser {
         ClassIndex clzIndex = parseClassIndex(iterator);
         classFile.setClassIndex(clzIndex);
 
+        // interface
         parseInterfaces(iterator);
+
+        // field
+        parseFields(classFile, iterator);
+        
+        // method
+        parseMethods(classFile, iterator);
+
         return classFile;
+    }
+
+    private void parseMethods(ClassFile classFile, ByteCodeIterator iterator) {
+        int methodsCount = iterator.nextU2ToInt();
+        System.out.println("Methods Count: " + methodsCount);
+
+        for (int i = 1; i <= methodsCount; i++) {
+            Method method = Method.parse(classFile, iterator);
+            classFile.addMethod(method);
+        }
+    }
+
+
+    private void parseFields(ClassFile clzFile, ByteCodeIterator iterator) {
+        int fieldsCount = iterator.nextU2ToInt();
+        System.out.println("Field count:" + fieldsCount);
+        for (int i = 1; i <= fieldsCount; i++) {// 从第一个开始，因为不包含本身
+            Field field = Field.parse(clzFile.getConstantPool(), iterator);
+            clzFile.addField(field);
+        }
     }
 
     private AccessFlag parseAccessFlag(ByteCodeIterator iter) {
@@ -80,40 +110,40 @@ public class ClassFileParser {
 
             switch (tag) {
 
-                case 7:         //CONSTANT_Class
+                case ConstantInfo.CLASS_INFO:         //CONSTANT_Class
                     int utf8Index = iter.nextU2ToInt();
                     ClassInfo classInfo = new ClassInfo(pool);
                     classInfo.setUtf8Index(utf8Index);
 
                     pool.addConstantInfo(classInfo);
                     break;
-                case 9:         // CONSTANT_Fieldref
+                case ConstantInfo.FIELD_INFO:         // CONSTANT_Fieldref
                     FieldRefInfo fieldRefInfo = new FieldRefInfo(pool);
                     fieldRefInfo.setClassInfoIndex(iter.nextU2ToInt());
                     fieldRefInfo.setNameAndTypeIndex(iter.nextU2ToInt());
 
                     pool.addConstantInfo(fieldRefInfo);
                     break;
-                case 10:        // CONSTANT_Methodref
+                case ConstantInfo.METHOD_INFO:        // CONSTANT_Methodref
                     MethodRefInfo methodRefInfo = new MethodRefInfo(pool);
                     methodRefInfo.setClassInfoIndex(iter.nextU2ToInt());
                     methodRefInfo.setNameAndTypeIndex(iter.nextU2ToInt());
 
                     pool.addConstantInfo(methodRefInfo);
                     break;
-                case 8:
+                case ConstantInfo.STRING_INFO:
                     StringInfo info = new StringInfo(pool);
                     info.setIndex(iter.nextU2ToInt());
                     pool.addConstantInfo(info);
                     break;
-                case 12:        // CONSTANT_NameAndType
+                case ConstantInfo.NAME_AND_TYPE_INFO:        // CONSTANT_NameAndType
                     NameAndTypeInfo nameAndTypeInfo = new NameAndTypeInfo(pool);
                     nameAndTypeInfo.setIndex1(iter.nextU2ToInt());
                     nameAndTypeInfo.setIndex2(iter.nextU2ToInt());
 
                     pool.addConstantInfo(nameAndTypeInfo);
                     break;
-                case 1:         // CONSTANT_Utf8
+                case ConstantInfo.UTF8_INFO:         // CONSTANT_Utf8
                     int length = iter.nextU2ToInt();
                     byte[] data = iter.getBytes(length);
                     String value = null;
