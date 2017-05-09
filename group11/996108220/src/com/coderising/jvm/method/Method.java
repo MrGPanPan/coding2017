@@ -64,4 +64,33 @@ public class Method {
 
 		return CommandParser.parse(clzFile, codeAttr.getCode());
 	}
+
+	public ArrayList<String> getParameterList() {
+		ConstantPool pool=clzFile.getConstantPool();
+		String param=pool.getUTF8String(descriptorIndex);
+		int first=param.indexOf('(');
+		int last=param.indexOf(')');
+		ArrayList<String> localParamList =new ArrayList<>();
+		String paramsub=param.substring(first+1,last);
+		String[] suString=paramsub.split(";");
+		if((null == paramsub) || "".equals(paramsub)){
+			return localParamList;
+		}
+		for (int i = 0; i < suString.length; i++) {
+			if (suString[i].charAt(0)=='L') {
+				localParamList.add(suString[i]);
+			}
+			else {
+				for (int j = 0; j < suString[i].length(); j++) {
+					if (suString[i].charAt(j)=='I') {
+						localParamList.add("I");
+					}
+					else if (suString[i].charAt(j)=='F') {
+						localParamList.add("F");
+					}
+				}
+			}
+		}
+		return localParamList;
+	}
 }

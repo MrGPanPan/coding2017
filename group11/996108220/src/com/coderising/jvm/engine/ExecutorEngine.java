@@ -46,9 +46,19 @@ public class ExecutorEngine {
 	
 	private void setupFunctionCallParams(StackFrame currentFrame,StackFrame nextFrame) {
 		Method nextMethod=nextFrame.getMethod();
-		n
-		
-		
+		ArrayList<String> localParamList=nextMethod.getParameterList();
+		//+1是要将this传过去
+		int paramNum=localParamList.size()+1;
+		List<JavaObject> value=new ArrayList<>();
+		while (paramNum>0) {
+			value.add(currentFrame.getOprandStack().pop());
+			paramNum--;
+		}
+		List<JavaObject> param=new ArrayList<>();
+		for (int i = value.size()-1; i >=0; i--) {
+			param.add(value.get(i));
+		}
+		nextFrame.setLocalVariableTable(param);
 	}
 	
 }
